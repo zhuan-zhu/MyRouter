@@ -7,12 +7,20 @@
 #
 name: OpenWrt-CI
 
+#on:
+##  push:
+##    branches:
+##      - master
+#  schedule:
+#    - cron: 0 20 * * *
+
 on:
-#  push:
-#    branches:
-#      - master
-  schedule:
-    - cron: 0 20 * * *
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'tags'
+        required: false 
+        type: boolean
 
 permissions:
   contents: read
